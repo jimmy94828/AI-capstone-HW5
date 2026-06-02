@@ -1,0 +1,246 @@
+@prefix cap:     <https://hcis.io/ontology/aicapstone/2026/> .
+@prefix g13:     <https://hcis.io/ontology/aicapstone/2026/group13/> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann:    <http://purl.org/vocab/vann/> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+
+<https://hcis.io/ontology/aicapstone/2026/group13/>
+    a owl:Ontology ;
+    rdfs:label "Group 13 Semantic Affordance Grounding Ontology"@en ;
+    rdfs:comment
+        "A group-authored ontology for grounding course task objects, task roles, manipulation affordances, and inferred graspability."@en ;
+    dcterms:title "Group 13 Semantic Affordance Grounding Ontology"@en ;
+    dcterms:description
+        "This ontology defines group-specific object instances for the AI Capstone semantic grounding homework and uses OWL reasoning to infer graspable objects."@en ;
+    dcterms:creator g13:group13 ;
+    dcterms:created "2026-06-01"^^xsd:date ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    owl:imports <imports/course-affordance.ttl>,
+                <imports/course-alignment.ttl> ;
+    vann:preferredNamespacePrefix "g13" ;
+    vann:preferredNamespaceUri "https://hcis.io/ontology/aicapstone/2026/group13/" .
+
+#################################################################
+# Group and member metadata
+#################################################################
+
+g13:group13
+     a foaf:Group ;
+     rdfs:label "Group 13"@en ;
+     rdfs:comment
+         "The student group that authored this ontology for AI Capstone Homework 5."@en ;
+     foaf:name "Group 13"@en ;
+     foaf:member g13:member01,
+                 g13:member02,
+                 g13:member03,
+                 g13:member04,
+                 g13:member05,
+                 g13:member06 .
+
+g13:member01
+    a foaf:Person ;
+    rdfs:label "Chen Shih-Yen"@en ;
+    rdfs:comment "A member of Group 13."@en ;
+    dcterms:identifier "112550004" ;
+    foaf:name "陳詩諺"@zh-Hant .
+
+g13:member02
+    a foaf:Person ;
+    rdfs:label "Hsieh Chia-Chen"@en ;
+    rdfs:comment "A member of Group 13."@en ;
+    dcterms:identifier "112550019" ;
+    foaf:name "謝嘉宸"@zh-Hant .
+
+g13:member03
+    a foaf:Person ;
+    rdfs:label "Hsu Wei-Chen"@en ;
+    rdfs:comment "A member of Group 13."@en ;
+    dcterms:identifier "112550047" ;
+    foaf:name "徐瑋晨"@zh-Hant .
+
+g13:member04
+    a foaf:Person ;
+    rdfs:label "Tsai Cheng-Hsu"@en ;
+    rdfs:comment "A member of Group 13."@en ;
+    dcterms:identifier "112550099" ;
+    foaf:name "蔡烝旭"@zh-Hant .
+
+g13:member05
+    a foaf:Person ;
+    rdfs:label "Yu Hsiang-Yu"@en ;
+    rdfs:comment "A member of Group 13."@en ;
+    dcterms:identifier "112550103" ;
+    foaf:name "游翔宇"@zh-Hant .
+
+g13:member06
+    a foaf:Person ;
+    rdfs:label "Sun Fu-Kang"@en ;
+    rdfs:comment "A member of Group 13."@en ;
+    dcterms:identifier "112550176" ;
+    foaf:name "孫傅康"@zh-Hant .
+
+#################################################################
+# Reasoning target: GraspableObject
+#################################################################
+
+cap:GraspableObject
+    a owl:Class ;
+    rdfs:label "graspable object"@en ;
+    rdfs:comment
+        "A physical object inferred to be graspable because it has at least one grasping affordance."@en ;
+    owl:equivalentClass [
+        a owl:Class ;
+        owl:intersectionOf (
+            cap:PhysicalObject
+            [
+                a owl:Restriction ;
+                owl:onProperty cap:hasAffordance ;
+                owl:someValuesFrom cap:GraspingAffordance
+            ]
+        )
+    ] .
+
+#################################################################
+# Group-specific affordance individuals
+#################################################################
+
+g13:graspingAffordance
+    a cap:GraspingAffordance ;
+    rdfs:label "grasping affordance"@en ;
+    rdfs:comment
+        "The affordance indicating that an object can be grasped, held, lifted, or repositioned by the robot gripper."@en .
+
+g13:stackabilityAffordance
+    a cap:StackabilityAffordance ;
+    rdfs:label "stackability affordance"@en ;
+    rdfs:comment
+        "The affordance indicating that an object can participate in a stacking task."@en .
+
+g13:supportAffordance
+    a cap:SupportAffordance ;
+    rdfs:label "support affordance"@en ;
+    rdfs:comment
+        "The affordance indicating that an object can support the placement or arrangement of other objects."@en .
+
+g13:containmentAffordance
+    a cap:ContainmentAffordance ;
+    rdfs:label "containment affordance"@en ;
+    rdfs:comment
+        "The affordance indicating that an object can contain or receive other objects."@en .
+
+#################################################################
+# Baseline task object instances
+#################################################################
+
+g13:blueCup01
+    a cap:Cup ;
+    rdfs:label "blue cup 01"@en ;
+    rdfs:comment
+        "The blue cup instance for the baseline cup-stacking task."@en ;
+    cap:hasColor "blue" ;
+    cap:hasObjectLabel "blue_cup" ;
+    cap:hasTaskRole cap:TargetObject ;
+    cap:hasAffordance g13:graspingAffordance, g13:stackabilityAffordance ;
+    cap:hasPoseFrame "world/object_blue_cup" .
+
+g13:pinkCup01
+    a cap:Cup ;
+    rdfs:label "pink cup 01"@en ;
+    rdfs:comment
+        "The pink cup instance for the baseline cup-stacking task."@en ;
+    cap:hasColor "pink" ;
+    cap:hasObjectLabel "pink_cup" ;
+    cap:hasTaskRole cap:TargetObject ;
+    cap:hasAffordance g13:graspingAffordance, g13:stackabilityAffordance ;
+    cap:hasPoseFrame "world/object_pink_cup" .
+
+g13:knife01
+    a cap:Knife ;
+    rdfs:label "knife 01"@en ;
+    rdfs:comment
+        "The knife instance used as a direct manipulation target in the cutlery-arrangement task."@en ;
+    cap:hasObjectLabel "knife" ;
+    cap:hasTaskRole cap:TargetObject ;
+    cap:hasAffordance g13:graspingAffordance ;
+    cap:hasPoseFrame "world/object_knife" .
+
+g13:fork01
+    a cap:Fork ;
+    rdfs:label "fork 01"@en ;
+    rdfs:comment
+        "The fork instance used as a direct manipulation target in the cutlery-arrangement task."@en ;
+    cap:hasObjectLabel "fork" ;
+    cap:hasTaskRole cap:TargetObject ;
+    cap:hasAffordance g13:graspingAffordance ;
+    cap:hasPoseFrame "world/object_fork" .
+
+g13:plate01
+    a cap:Plate ;
+    rdfs:label "plate 01"@en ;
+    rdfs:comment
+        "The plate instance used as a spatial reference object for arranging the knife and fork."@en ;
+    cap:hasObjectLabel "plate" ;
+    cap:hasTaskRole cap:ReferenceObject ;
+    cap:hasAffordance g13:supportAffordance ;
+    cap:hasPoseFrame "world/object_plate" .
+
+g13:block01
+    a cap:ToyBlock ;
+    rdfs:label "toy block 01"@en ;
+    rdfs:comment
+        "A toy block instance that should be collected into the basket."@en ;
+    cap:hasObjectLabel "toy_block" ;
+    cap:hasTaskRole cap:CollectableObject ;
+    cap:hasAffordance g13:graspingAffordance ;
+    cap:hasPoseFrame "world/object_block_01" .
+
+g13:block02
+    a cap:ToyBlock ;
+    rdfs:label "toy block 02"@en ;
+    rdfs:comment
+        "A second toy block instance included to represent the plural baseline toy-block collection objects."@en ;
+    cap:hasObjectLabel "toy_block" ;
+    cap:hasTaskRole cap:CollectableObject ;
+    cap:hasAffordance g13:graspingAffordance ;
+    cap:hasPoseFrame "world/object_block_02" .
+
+g13:basket01
+    a cap:Basket ;
+    rdfs:label "basket 01"@en ;
+    rdfs:comment
+        "The basket instance used as the container target for toy block collection."@en ;
+    cap:hasObjectLabel "basket" ;
+    cap:hasTaskRole cap:ContainerTarget ;
+    cap:hasAffordance g13:containmentAffordance ;
+    cap:hasPoseFrame "world/object_basket" .
+
+#################################################################
+# Optional task individuals
+#################################################################
+
+g13:cupStackingTask
+    a cap:ManipulationTask ;
+    rdfs:label "cup stacking task"@en ;
+    rdfs:comment
+        "The baseline task in which cups are stacked by the robot."@en ;
+    cap:hasTargetObject g13:blueCup01, g13:pinkCup01 .
+
+g13:cutleryArrangementTask
+    a cap:ManipulationTask ;
+    rdfs:label "cutlery arrangement task"@en ;
+    rdfs:comment
+        "The baseline task in which the knife and fork are arranged with respect to the plate."@en ;
+    cap:hasTargetObject g13:knife01, g13:fork01 ;
+    cap:hasReferenceObject g13:plate01 .
+
+g13:toyBlockCollectionTask
+    a cap:ManipulationTask ;
+    rdfs:label "toy block collection task"@en ;
+    rdfs:comment
+        "The baseline task in which toy blocks are collected into a basket."@en ;
+    cap:hasTargetObject g13:block01, g13:block02 ;
+    cap:hasReferenceObject g13:basket01 .
