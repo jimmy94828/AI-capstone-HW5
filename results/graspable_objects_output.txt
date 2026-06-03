@@ -1,0 +1,14 @@
+# Output of queries/graspable_objects.rq over the inferred model
+# (asserted group-ontology + course-affordance + inferred-results)
+# Engine: rdflib SPARQL; inference: HermiT OWL 2 DL.
+
+obj           | label     | role                 
+--------------+-----------+----------------------
+g13:block01   | toy_block | cap:CollectableObject
+g13:block02   | toy_block | cap:CollectableObject
+g13:blueCup01 | blue_cup  | cap:TargetObject     
+g13:fork01    | fork      | cap:TargetObject     
+g13:knife01   | knife     | cap:TargetObject     
+g13:pinkCup01 | pink_cup  | cap:TargetObject     
+
+# 6 graspable objects retrieved.
