@@ -1,0 +1,62 @@
+@prefix sh:   <http://www.w3.org/ns/shacl#> .
+@prefix cap:  <https://hcis.io/ontology/aicapstone/2026/> .
+@prefix g13:  <https://hcis.io/ontology/aicapstone/2026/group13/> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+#################################################################
+# SHACL shapes for Group 13 HW5.
+#
+# SHACL is used here for STRUCTURAL VALIDATION, which is a separate
+# concern from the OWL reasoning that derives cap:GraspableObject.
+# OWL infers class membership; SHACL checks that the asserted graph
+# satisfies the modelling constraints expected by the course tasks.
+#################################################################
+
+g13:PhysicalObjectShape
+    a sh:NodeShape ;
+    rdfs:label "physical object shape"@en ;
+    rdfs:comment
+        "Structural constraints that every modelled physical object instance must satisfy: a perception label, a task role, and at least one affordance."@en ;
+    sh:targetClass cap:PhysicalObject ;
+    sh:property [
+        sh:path cap:hasObjectLabel ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:message "Every physical object must carry at least one cap:hasObjectLabel used for perception grounding."@en ;
+    ] ;
+    sh:property [
+        sh:path cap:hasTaskRole ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:message "Every physical object must be assigned at least one cap:hasTaskRole."@en ;
+    ] ;
+    sh:property [
+        sh:path cap:hasAffordance ;
+        sh:minCount 1 ;
+        sh:class cap:Affordance ;
+        sh:message "Every physical object must declare at least one cap:hasAffordance."@en ;
+    ] .
+
+g13:ManipulationTargetShape
+    a sh:NodeShape ;
+    rdfs:label "manipulation target shape"@en ;
+    rdfs:comment
+        "Objects acting as direct manipulation targets (a TargetObject or CollectableObject task role) must expose at least one grasping affordance, so that ontology-level graspability is structurally supported and not accidental."@en ;
+    sh:target [
+        a sh:SPARQLTarget ;
+        sh:select """
+            SELECT ?this WHERE {
+              ?this <https://hcis.io/ontology/aicapstone/2026/hasTaskRole> ?role .
+              FILTER (?role IN (
+                <https://hcis.io/ontology/aicapstone/2026/TargetObject>,
+                <https://hcis.io/ontology/aicapstone/2026/CollectableObject> ))
+            }
+        """ ;
+    ] ;
+    sh:property [
+        sh:path cap:hasAffordance ;
+        sh:qualifiedValueShape [ sh:class cap:GraspingAffordance ] ;
+        sh:qualifiedMinCount 1 ;
+        sh:message "A manipulation-target object (TargetObject/CollectableObject) must have at least one cap:GraspingAffordance."@en ;
+    ] .

@@ -1,0 +1,367 @@
+@prefix : <https://hcis.io/ontology/aicapstone/2026/group13/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://hcis.io/ontology/aicapstone/2026/group13/> .
+
+<https://hcis.io/ontology/aicapstone/2026/group13/> rdf:type owl:Ontology ;
+                                                     owl:imports <file:/home/franciscobrizuela/Documents/classes2/AICapstone/HW/ai-capstone26/hw5/semantic-affordance-grounding/ontology/imports/course-affordance.ttl> ;
+                                                     <http://purl.org/dc/terms/created> "2026-06-01"^^xsd:date ;
+                                                     <http://purl.org/dc/terms/creator> :group13 ;
+                                                     <http://purl.org/dc/terms/description> "This ontology defines group-specific object instances for the AI Capstone semantic grounding homework and uses OWL reasoning to infer graspable objects."@en ;
+                                                     <http://purl.org/dc/terms/license> <https://creativecommons.org/licenses/by/4.0/> ;
+                                                     <http://purl.org/dc/terms/title> "Group 13 Semantic Affordance Grounding Ontology"@en ;
+                                                     <http://purl.org/vocab/vann/preferredNamespacePrefix> "g13" ;
+                                                     <http://purl.org/vocab/vann/preferredNamespaceUri> "https://hcis.io/ontology/aicapstone/2026/group13/" ;
+                                                     rdfs:comment "A group-authored ontology for grounding course task objects, task roles, manipulation affordances, and inferred graspability."@en ;
+                                                     rdfs:label "Group 13 Semantic Affordance Grounding Ontology"@en .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/identifier
+<http://purl.org/dc/terms/identifier> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#broadMatch
+<http://www.w3.org/2004/02/skos/core#broadMatch> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#closeMatch
+<http://www.w3.org/2004/02/skos/core#closeMatch> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#definition
+<http://www.w3.org/2004/02/skos/core#definition> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#prefLabel
+<http://www.w3.org/2004/02/skos/core#prefLabel> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#relatedMatch
+<http://www.w3.org/2004/02/skos/core#relatedMatch> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#scopeNote
+<http://www.w3.org/2004/02/skos/core#scopeNote> rdf:type owl:AnnotationProperty .
+
+
+###  http://xmlns.com/foaf/0.1/member
+<http://xmlns.com/foaf/0.1/member> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://xmlns.com/foaf/0.1/Group
+<http://xmlns.com/foaf/0.1/Group> rdf:type owl:Class .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/GraspableObject
+<https://hcis.io/ontology/aicapstone/2026/GraspableObject> rdf:type owl:Class ;
+                                                           owl:equivalentClass [ owl:intersectionOf ( <https://hcis.io/ontology/aicapstone/2026/PhysicalObject>
+                                                                                                      [ rdf:type owl:Restriction ;
+                                                                                                        owl:onProperty <https://hcis.io/ontology/aicapstone/2026/hasAffordance> ;
+                                                                                                        owl:someValuesFrom <https://hcis.io/ontology/aicapstone/2026/GraspingAffordance>
+                                                                                                      ]
+                                                                                                    ) ;
+                                                                                 rdf:type owl:Class
+                                                                               ] ;
+                                                           rdfs:comment "A physical object inferred to be graspable because it has at least one grasping affordance."@en ;
+                                                           rdfs:label "graspable object"@en ;
+                                                           <http://www.w3.org/2004/02/skos/core#definition> "A physical object inferred to afford grasping by a robot end effector in the task context."@en ;
+                                                           <http://www.w3.org/2004/02/skos/core#prefLabel> "graspable object"@en ;
+                                                           <http://www.w3.org/2004/02/skos/core#relatedMatch> <http://www.ease-crc.org/ont/SOMA.owl#MovedObject> ,
+                                                                                                              <http://www.ease-crc.org/ont/SOMA.owl#Patient> ;
+                                                           <http://www.w3.org/2004/02/skos/core#scopeNote> "This is a course-level inferred class. It should not be treated as equivalent to a SOMA role such as soma:MovedObject or soma:Patient, because those terms describe participation roles in activities rather than the local OWL classification rule used in this homework."@en .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/GraspingAffordance
+<https://hcis.io/ontology/aicapstone/2026/GraspingAffordance> <http://www.w3.org/2004/02/skos/core#definition> "An affordance by which an object can be grasped, held, lifted, or repositioned by a robot gripper."@en ;
+                                                              <http://www.w3.org/2004/02/skos/core#prefLabel> "grasping affordance"@en ;
+                                                              <http://www.w3.org/2004/02/skos/core#relatedMatch> <http://www.ease-crc.org/ont/SOMA.owl#Disposition> ,
+                                                                                                                 <http://www.ease-crc.org/ont/SOMA.owl#Grasping> ;
+                                                              <http://www.w3.org/2004/02/skos/core#scopeNote> "The course term is represented locally as an affordance class. SOMA models affordance-like knowledge through dispositions and task-oriented action descriptions; therefore relatedMatch is used rather than exactMatch."@en .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/ManipulationTask
+<https://hcis.io/ontology/aicapstone/2026/ManipulationTask> <http://www.w3.org/2004/02/skos/core#broadMatch> <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Task> ;
+                                                            <http://www.w3.org/2004/02/skos/core#definition> "A robot task in which an agent changes the pose, state, or arrangement of physical objects."@en ;
+                                                            <http://www.w3.org/2004/02/skos/core#prefLabel> "manipulation task"@en ;
+                                                            <http://www.w3.org/2004/02/skos/core#relatedMatch> <http://www.ease-crc.org/ont/SOMA.owl#Manipulating> ;
+                                                            <http://www.w3.org/2004/02/skos/core#scopeNote> "The course term covers the project tasks, including cup stacking, cutlery arrangement, and toy block collection."@en .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/PhysicalObject
+<https://hcis.io/ontology/aicapstone/2026/PhysicalObject> <http://www.w3.org/2004/02/skos/core#closeMatch> <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#PhysicalObject> ;
+                                                          <http://www.w3.org/2004/02/skos/core#definition> "A material object in the task environment, such as a cup, fork, toy block, plate, or basket."@en ;
+                                                          <http://www.w3.org/2004/02/skos/core#prefLabel> "physical object"@en ;
+                                                          <http://www.w3.org/2004/02/skos/core#relatedMatch> <http://www.ease-crc.org/ont/SOMA.owl#ShapedObject> ;
+                                                          <http://www.w3.org/2004/02/skos/core#scopeNote> "The course term is intentionally broad. DUL provides a foundational physical-object category, while SOMA provides robotics-oriented refinements for embodied activity contexts."@en .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://hcis.io/ontology/aicapstone/2026/CollectableObject
+<https://hcis.io/ontology/aicapstone/2026/CollectableObject> rdf:type owl:NamedIndividual .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/ContainerTarget
+<https://hcis.io/ontology/aicapstone/2026/ContainerTarget> rdf:type owl:NamedIndividual ;
+                                                           <http://www.w3.org/2004/02/skos/core#definition> "A task role for an object that receives or contains other objects, such as the basket in toy block collection."@en ;
+                                                           <http://www.w3.org/2004/02/skos/core#prefLabel> "container target"@en ;
+                                                           <http://www.w3.org/2004/02/skos/core#relatedMatch> <http://www.ease-crc.org/ont/SOMA.owl#Deposit> ,
+                                                                                                              <http://www.ease-crc.org/ont/SOMA.owl#Deposition> ;
+                                                           <http://www.w3.org/2004/02/skos/core#scopeNote> "This term is used locally to describe the role of a container in the course task, not to assert equivalence with a SOMA action or process class."@en .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/ReferenceObject
+<https://hcis.io/ontology/aicapstone/2026/ReferenceObject> rdf:type owl:NamedIndividual .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/TargetObject
+<https://hcis.io/ontology/aicapstone/2026/TargetObject> rdf:type owl:NamedIndividual .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/group13/basket01
+:basket01 rdf:type owl:NamedIndividual ,
+                   <https://hcis.io/ontology/aicapstone/2026/Basket> ;
+          <https://hcis.io/ontology/aicapstone/2026/hasAffordance> :containmentAffordance ;
+          <https://hcis.io/ontology/aicapstone/2026/hasTaskRole> <https://hcis.io/ontology/aicapstone/2026/ContainerTarget> ;
+          <https://hcis.io/ontology/aicapstone/2026/hasObjectLabel> "basket" ;
+          <https://hcis.io/ontology/aicapstone/2026/hasPoseFrame> "world/object_basket" ;
+          rdfs:comment "The basket instance used as the container target for toy block collection."@en ;
+          rdfs:label "basket 01"@en .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/group13/block01
+:block01 rdf:type owl:NamedIndividual ,
+                  <https://hcis.io/ontology/aicapstone/2026/ToyBlock> ;
+         <https://hcis.io/ontology/aicapstone/2026/hasAffordance> :graspingAffordance ;
+         <https://hcis.io/ontology/aicapstone/2026/hasTaskRole> <https://hcis.io/ontology/aicapstone/2026/CollectableObject> ;
+         <https://hcis.io/ontology/aicapstone/2026/hasObjectLabel> "toy_block" ;
+         <https://hcis.io/ontology/aicapstone/2026/hasPoseFrame> "world/object_block_01" ;
+         rdfs:comment "A toy block instance that should be collected into the basket."@en ;
+         rdfs:label "toy block 01"@en .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/group13/block02
+:block02 rdf:type owl:NamedIndividual ,
+                  <https://hcis.io/ontology/aicapstone/2026/ToyBlock> ;
+         <https://hcis.io/ontology/aicapstone/2026/hasAffordance> :graspingAffordance ;
+         <https://hcis.io/ontology/aicapstone/2026/hasTaskRole> <https://hcis.io/ontology/aicapstone/2026/CollectableObject> ;
+         <https://hcis.io/ontology/aicapstone/2026/hasObjectLabel> "toy_block" ;
+         <https://hcis.io/ontology/aicapstone/2026/hasPoseFrame> "world/object_block_02" ;
+         rdfs:comment "A second toy block instance included to represent the plural baseline toy-block collection objects."@en ;
+         rdfs:label "toy block 02"@en .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/group13/blueCup01
+:blueCup01 rdf:type owl:NamedIndividual ,
+                    <https://hcis.io/ontology/aicapstone/2026/Cup> ;
+           <https://hcis.io/ontology/aicapstone/2026/hasAffordance> :graspingAffordance ,
+                                                                    :stackabilityAffordance ;
+           <https://hcis.io/ontology/aicapstone/2026/hasTaskRole> <https://hcis.io/ontology/aicapstone/2026/TargetObject> ;
+           <https://hcis.io/ontology/aicapstone/2026/hasColor> "blue" ;
+           <https://hcis.io/ontology/aicapstone/2026/hasObjectLabel> "blue_cup" ;
+           <https://hcis.io/ontology/aicapstone/2026/hasPoseFrame> "world/object_blue_cup" ;
+           rdfs:comment "The blue cup instance for the baseline cup-stacking task."@en ;
+           rdfs:label "blue cup 01"@en .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/group13/containmentAffordance
+:containmentAffordance rdf:type owl:NamedIndividual ,
+                                <https://hcis.io/ontology/aicapstone/2026/ContainmentAffordance> ;
+                       rdfs:comment "The affordance indicating that an object can contain or receive other objects."@en ;
+                       rdfs:label "containment affordance"@en .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/group13/cupStackingTask
+:cupStackingTask rdf:type owl:NamedIndividual ,
+                          <https://hcis.io/ontology/aicapstone/2026/ManipulationTask> ;
+                 <https://hcis.io/ontology/aicapstone/2026/hasTargetObject> :blueCup01 ,
+                                                                            :pinkCup01 ;
+                 rdfs:comment "The baseline task in which cups are stacked by the robot."@en ;
+                 rdfs:label "cup stacking task"@en .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/group13/cutleryArrangementTask
+:cutleryArrangementTask rdf:type owl:NamedIndividual ,
+                                 <https://hcis.io/ontology/aicapstone/2026/ManipulationTask> ;
+                        <https://hcis.io/ontology/aicapstone/2026/hasReferenceObject> :plate01 ;
+                        <https://hcis.io/ontology/aicapstone/2026/hasTargetObject> :fork01 ,
+                                                                                   :knife01 ;
+                        rdfs:comment "The baseline task in which the knife and fork are arranged with respect to the plate."@en ;
+                        rdfs:label "cutlery arrangement task"@en .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/group13/fork01
+:fork01 rdf:type owl:NamedIndividual ,
+                 <https://hcis.io/ontology/aicapstone/2026/Fork> ;
+        <https://hcis.io/ontology/aicapstone/2026/hasAffordance> :graspingAffordance ;
+        <https://hcis.io/ontology/aicapstone/2026/hasTaskRole> <https://hcis.io/ontology/aicapstone/2026/TargetObject> ;
+        <https://hcis.io/ontology/aicapstone/2026/hasObjectLabel> "fork" ;
+        <https://hcis.io/ontology/aicapstone/2026/hasPoseFrame> "world/object_fork" ;
+        rdfs:comment "The fork instance used as a direct manipulation target in the cutlery-arrangement task."@en ;
+        rdfs:label "fork 01"@en .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/group13/graspingAffordance
+:graspingAffordance rdf:type owl:NamedIndividual ,
+                             <https://hcis.io/ontology/aicapstone/2026/GraspingAffordance> ;
+                    rdfs:comment "The affordance indicating that an object can be grasped, held, lifted, or repositioned by the robot gripper."@en ;
+                    rdfs:label "grasping affordance"@en .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/group13/group13
+:group13 rdf:type owl:NamedIndividual ,
+                  <http://xmlns.com/foaf/0.1/Group> ;
+         rdfs:comment "The student group that authored this ontology for AI Capstone Homework 5."@en ;
+         rdfs:label "Group 13"@en ;
+         <http://xmlns.com/foaf/0.1/member> :member01 ,
+                                            :member02 ,
+                                            :member03 ,
+                                            :member04 ,
+                                            :member05 ,
+                                            :member06 ;
+         <http://xmlns.com/foaf/0.1/name> "Group 13"@en .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/group13/knife01
+:knife01 rdf:type owl:NamedIndividual ,
+                  <https://hcis.io/ontology/aicapstone/2026/Knife> ;
+         <https://hcis.io/ontology/aicapstone/2026/hasAffordance> :graspingAffordance ;
+         <https://hcis.io/ontology/aicapstone/2026/hasTaskRole> <https://hcis.io/ontology/aicapstone/2026/TargetObject> ;
+         <https://hcis.io/ontology/aicapstone/2026/hasObjectLabel> "knife" ;
+         <https://hcis.io/ontology/aicapstone/2026/hasPoseFrame> "world/object_knife" ;
+         rdfs:comment "The knife instance used as a direct manipulation target in the cutlery-arrangement task."@en ;
+         rdfs:label "knife 01"@en .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/group13/member01
+:member01 rdf:type owl:NamedIndividual ,
+                   <http://xmlns.com/foaf/0.1/Person> ;
+          <http://purl.org/dc/terms/identifier> "112550004" ;
+          rdfs:comment "A member of Group 13."@en ;
+          rdfs:label "Chen Shih-Yen"@en ;
+          <http://xmlns.com/foaf/0.1/name> "陳詩諺"@zh-hant .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/group13/member02
+:member02 rdf:type owl:NamedIndividual ,
+                   <http://xmlns.com/foaf/0.1/Person> ;
+          <http://purl.org/dc/terms/identifier> "112550019" ;
+          rdfs:comment "A member of Group 13."@en ;
+          rdfs:label "Hsieh Chia-Chen"@en ;
+          <http://xmlns.com/foaf/0.1/name> "謝嘉宸"@zh-hant .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/group13/member03
+:member03 rdf:type owl:NamedIndividual ,
+                   <http://xmlns.com/foaf/0.1/Person> ;
+          <http://purl.org/dc/terms/identifier> "112550047" ;
+          rdfs:comment "A member of Group 13."@en ;
+          rdfs:label "Hsu Wei-Chen"@en ;
+          <http://xmlns.com/foaf/0.1/name> "徐瑋晨"@zh-hant .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/group13/member04
+:member04 rdf:type owl:NamedIndividual ,
+                   <http://xmlns.com/foaf/0.1/Person> ;
+          <http://purl.org/dc/terms/identifier> "112550099" ;
+          rdfs:comment "A member of Group 13."@en ;
+          rdfs:label "Tsai Cheng-Hsu"@en ;
+          <http://xmlns.com/foaf/0.1/name> "蔡烝旭"@zh-hant .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/group13/member05
+:member05 rdf:type owl:NamedIndividual ,
+                   <http://xmlns.com/foaf/0.1/Person> ;
+          <http://purl.org/dc/terms/identifier> "112550103" ;
+          rdfs:comment "A member of Group 13."@en ;
+          rdfs:label "Yu Hsiang-Yu"@en ;
+          <http://xmlns.com/foaf/0.1/name> "游翔宇"@zh-hant .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/group13/member06
+:member06 rdf:type owl:NamedIndividual ,
+                   <http://xmlns.com/foaf/0.1/Person> ;
+          <http://purl.org/dc/terms/identifier> "112550176" ;
+          rdfs:comment "A member of Group 13."@en ;
+          rdfs:label "Sun Fu-Kang"@en ;
+          <http://xmlns.com/foaf/0.1/name> "孫傅康"@zh-hant .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/group13/pinkCup01
+:pinkCup01 rdf:type owl:NamedIndividual ,
+                    <https://hcis.io/ontology/aicapstone/2026/Cup> ;
+           <https://hcis.io/ontology/aicapstone/2026/hasAffordance> :graspingAffordance ,
+                                                                    :stackabilityAffordance ;
+           <https://hcis.io/ontology/aicapstone/2026/hasTaskRole> <https://hcis.io/ontology/aicapstone/2026/TargetObject> ;
+           <https://hcis.io/ontology/aicapstone/2026/hasColor> "pink" ;
+           <https://hcis.io/ontology/aicapstone/2026/hasObjectLabel> "pink_cup" ;
+           <https://hcis.io/ontology/aicapstone/2026/hasPoseFrame> "world/object_pink_cup" ;
+           rdfs:comment "The pink cup instance for the baseline cup-stacking task."@en ;
+           rdfs:label "pink cup 01"@en .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/group13/plate01
+:plate01 rdf:type owl:NamedIndividual ,
+                  <https://hcis.io/ontology/aicapstone/2026/Plate> ;
+         <https://hcis.io/ontology/aicapstone/2026/hasAffordance> :supportAffordance ;
+         <https://hcis.io/ontology/aicapstone/2026/hasTaskRole> <https://hcis.io/ontology/aicapstone/2026/ReferenceObject> ;
+         <https://hcis.io/ontology/aicapstone/2026/hasObjectLabel> "plate" ;
+         <https://hcis.io/ontology/aicapstone/2026/hasPoseFrame> "world/object_plate" ;
+         rdfs:comment "The plate instance used as a spatial reference object for arranging the knife and fork."@en ;
+         rdfs:label "plate 01"@en .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/group13/stackabilityAffordance
+:stackabilityAffordance rdf:type owl:NamedIndividual ,
+                                 <https://hcis.io/ontology/aicapstone/2026/StackabilityAffordance> ;
+                        rdfs:comment "The affordance indicating that an object can participate in a stacking task."@en ;
+                        rdfs:label "stackability affordance"@en .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/group13/supportAffordance
+:supportAffordance rdf:type owl:NamedIndividual ,
+                            <https://hcis.io/ontology/aicapstone/2026/SupportAffordance> ;
+                   rdfs:comment "The affordance indicating that an object can support the placement or arrangement of other objects."@en ;
+                   rdfs:label "support affordance"@en .
+
+
+###  https://hcis.io/ontology/aicapstone/2026/group13/toyBlockCollectionTask
+:toyBlockCollectionTask rdf:type owl:NamedIndividual ,
+                                 <https://hcis.io/ontology/aicapstone/2026/ManipulationTask> ;
+                        <https://hcis.io/ontology/aicapstone/2026/hasReferenceObject> :basket01 ;
+                        <https://hcis.io/ontology/aicapstone/2026/hasTargetObject> :block01 ,
+                                                                                   :block02 ;
+                        rdfs:comment "The baseline task in which toy blocks are collected into a basket."@en ;
+                        rdfs:label "toy block collection task"@en .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+<https://hcis.io/ontology/aicapstone/2026/EndEffector> <http://www.w3.org/2004/02/skos/core#definition> "A robot component used to physically interact with objects, such as a gripper."@en ;
+                                                       <http://www.w3.org/2004/02/skos/core#prefLabel> "end effector"@en ;
+                                                       <http://www.w3.org/2004/02/skos/core#relatedMatch> <http://www.ease-crc.org/ont/SOMA.owl#Gripper> ;
+                                                       <http://www.w3.org/2004/02/skos/core#scopeNote> "This homework treats end effectors at a simplified level sufficient for graspability reasoning."@en .
+
+
+<https://hcis.io/ontology/aicapstone/2026/RobotAgent> <http://www.w3.org/2004/02/skos/core#closeMatch> <http://purl.org/ieee1872-owl/cora-bare#Robot> ;
+                                                      <http://www.w3.org/2004/02/skos/core#definition> "A robot or robot-controlled agent that can perceive, reason about, and manipulate objects in the task environment."@en ;
+                                                      <http://www.w3.org/2004/02/skos/core#prefLabel> "robot agent"@en ;
+                                                      <http://www.w3.org/2004/02/skos/core#relatedMatch> <http://purl.org/ieee1872-owl/sumo-cora#Agent> ;
+                                                      <http://www.w3.org/2004/02/skos/core#scopeNote> "The course term is aligned with CORA at the level of robot-as-agent or robot-as-system. It remains locally defined for the purposes of this homework."@en .
+
+
+###  Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/

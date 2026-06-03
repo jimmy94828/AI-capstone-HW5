@@ -18,10 +18,14 @@ The repository is organized as follows:
 | `ontology/imports/course-affordance.ttl` | Imported course ontology. |
 | `ontology/imports/course-alignment.ttl` | Imported SKOS alignment resource. |
 | `ontology/inferred-results.ttl` | Generated after OWL reasoning. |
+| `ontology/shapes.ttl` | SHACL shapes for structural validation. |
 | `queries/graspable_objects.rq` | Required query for inferred graspable objects. |
 | `queries/task_objects.rq` | Optional query for modeled task objects. |
 | `results/graspable_objects_output.txt` | Generated SPARQL query output. |
+| `results/shacl_validation_report.txt` | Generated SHACL validation report (`Conforms: True`). |
 | `results/screenshots/` | Optional GUI verification screenshots. |
+| `docs/` | Widoco-generated HTML documentation of the group ontology. |
+| `src/run_reasoning.py`, `src/run_validation.py` | Headless reasoning and SHACL validation scripts. |
 
 ## 3. Namespace Policy
 
@@ -132,11 +136,50 @@ arq --data ontology/imports/course-affordance.ttl \
     > results/graspable_objects_output.txt
 ```
 
+### Workflow actually used
+
+The committed `ontology/inferred-results.ttl` and
+`results/graspable_objects_output.txt` were generated headlessly by
+`src/run_reasoning.py`, which runs the HermiT OWL 2 DL reasoner through
+`owlready2` and then executes the SPARQL query with `rdflib`. HermiT is a
+complete OWL 2 DL reasoner, so the `cap:GraspableObject` memberships are derived
+by genuine description-logic classification rather than asserted by hand. The
+reasoner classified exactly `g13:blueCup01`, `g13:pinkCup01`, `g13:knife01`,
+`g13:fork01`, `g13:block01`, and `g13:block02` as `cap:GraspableObject`, while
+`g13:plate01` and `g13:basket01` were correctly left unclassified, matching the
+expected inferences above.
+
 ## 10. Design Choices and Limitations
 
 The model focuses on semantic affordance grounding rather than geometric grasp planning. It does not check object dimensions, mass, pose uncertainty, collision constraints, gripper aperture, or learned policy success rates.
 
 The plate and basket are intentionally not inferred as graspable in the current model. They are task-relevant objects, but their modeled affordances are support and containment, respectively. If a later robot workflow requires moving the plate or basket, the ontology can be extended by adding task-specific grasping affordances for those objects.
+
+## 10.1 Structural Validation with SHACL
+
+OWL reasoning and SHACL validation play complementary roles. OWL *infers* new
+class memberships (`cap:GraspableObject`); SHACL *checks* that the asserted graph
+is structurally well-formed. The shapes in `ontology/shapes.ttl` encode two
+constraints:
+
+- every `cap:PhysicalObject` instance must carry at least one `cap:hasObjectLabel`,
+  one `cap:hasTaskRole`, and one `cap:hasAffordance`;
+- every object whose task role is `cap:TargetObject` or `cap:CollectableObject`
+  must have at least one `cap:GraspingAffordance` (a SHACL-SPARQL target combined
+  with a qualified value shape).
+
+Running `src/run_validation.py` (pyshacl) over the asserted model reports
+`Conforms: True`, confirming that all eight modelled objects satisfy the expected
+structure and that every manipulation target is structurally backed by a grasping
+affordance rather than being graspable by accident.
+
+## 10.2 Ontology Documentation with Widoco
+
+To verify that the group ontology is well-formed and readable for automatic
+documentation, HTML documentation was generated with Widoco and committed under
+`docs/` (`docs/doc/index-en.html`). Widoco processed `group-ontology.ttl`
+successfully, which is a practical indication that the ontology is structurally
+complete and suitable for inspection and reuse.
 
 ## 11. Conclusion
 
