@@ -12,7 +12,7 @@
      xmlns:terms="http://purl.org/dc/terms/"
      xmlns:aicapstone="https://hcis.io/ontology/aicapstone/2026/">
     <owl:Ontology rdf:about="https://hcis.io/ontology/aicapstone/2026/group13/">
-        <owl:imports rdf:resource="file:/home/franciscobrizuela/Documents/classes2/AICapstone/HW/ai-capstone26/hw5/semantic-affordance-grounding/ontology/imports/course-affordance.ttl"/>
+        <owl:imports rdf:resource="file:/home/weichen/AI_capstone/AI-capstone-HW5/ontology/imports/course-affordance.ttl"/>
         <terms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-06-01</terms:created>
         <terms:creator rdf:resource="https://hcis.io/ontology/aicapstone/2026/group13/group13"/>
         <terms:description xml:lang="en">This ontology defines group-specific object instances for the AI Capstone semantic grounding homework and uses OWL reasoning to infer graspable objects.</terms:description>
@@ -23,10 +23,10 @@
         <rdfs:comment xml:lang="en">A group-authored ontology for grounding course task objects, task roles, manipulation affordances, and inferred graspability.</rdfs:comment>
         <rdfs:label xml:lang="en">Group 13 Semantic Affordance Grounding Ontology</rdfs:label>
     </owl:Ontology>
-    
 
 
-    <!-- 
+
+    <!--
     ///////////////////////////////////////////////////////////////////////////////////////
     //
     // Annotation properties
@@ -35,66 +35,66 @@
      -->
 
 
-    
+
 
 
     <!-- http://purl.org/dc/terms/identifier -->
 
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/identifier"/>
-    
+
 
 
     <!-- http://www.w3.org/2004/02/skos/core#broadMatch -->
 
 
     <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#broadMatch"/>
-    
+
 
 
     <!-- http://www.w3.org/2004/02/skos/core#closeMatch -->
 
 
     <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#closeMatch"/>
-    
+
 
 
     <!-- http://www.w3.org/2004/02/skos/core#definition -->
 
 
     <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#definition"/>
-    
+
 
 
     <!-- http://www.w3.org/2004/02/skos/core#prefLabel -->
 
 
     <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#prefLabel"/>
-    
+
 
 
     <!-- http://www.w3.org/2004/02/skos/core#relatedMatch -->
 
 
     <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#relatedMatch"/>
-    
+
 
 
     <!-- http://www.w3.org/2004/02/skos/core#scopeNote -->
 
 
     <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#scopeNote"/>
-    
+
 
 
     <!-- http://xmlns.com/foaf/0.1/member -->
 
 
     <owl:AnnotationProperty rdf:about="http://xmlns.com/foaf/0.1/member"/>
-    
 
 
-    <!-- 
+
+    <!--
     ///////////////////////////////////////////////////////////////////////////////////////
     //
     // Classes
@@ -103,14 +103,14 @@
      -->
 
 
-    
+
 
 
     <!-- http://xmlns.com/foaf/0.1/Group -->
 
 
     <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Group"/>
-    
+
 
 
     <!-- https://hcis.io/ontology/aicapstone/2026/GraspableObject -->
@@ -128,6 +128,7 @@
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://hcis.io/ontology/aicapstone/2026/PhysicalObject"/>
         <rdfs:comment xml:lang="en">A physical object inferred to be graspable because it has at least one grasping affordance.</rdfs:comment>
         <rdfs:label xml:lang="en">graspable object</rdfs:label>
         <skos:definition xml:lang="en">A physical object inferred to afford grasping by a robot end effector in the task context.</skos:definition>
@@ -136,7 +137,7 @@
         <skos:relatedMatch rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Patient"/>
         <skos:scopeNote xml:lang="en">This is a course-level inferred class. It should not be treated as equivalent to a SOMA role such as soma:MovedObject or soma:Patient, because those terms describe participation roles in activities rather than the local OWL classification rule used in this homework.</skos:scopeNote>
     </owl:Class>
-    
+
 
 
     <!-- https://hcis.io/ontology/aicapstone/2026/GraspingAffordance -->
@@ -149,7 +150,7 @@
         <skos:relatedMatch rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Grasping"/>
         <skos:scopeNote xml:lang="en">The course term is represented locally as an affordance class. SOMA models affordance-like knowledge through dispositions and task-oriented action descriptions; therefore relatedMatch is used rather than exactMatch.</skos:scopeNote>
     </rdf:Description>
-    
+
 
 
     <!-- https://hcis.io/ontology/aicapstone/2026/ManipulationTask -->
@@ -162,7 +163,7 @@
         <skos:relatedMatch rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Manipulating"/>
         <skos:scopeNote xml:lang="en">The course term covers the project tasks, including cup stacking, cutlery arrangement, and toy block collection.</skos:scopeNote>
     </rdf:Description>
-    
+
 
 
     <!-- https://hcis.io/ontology/aicapstone/2026/PhysicalObject -->
@@ -175,10 +176,158 @@
         <skos:relatedMatch rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#ShapedObject"/>
         <skos:scopeNote xml:lang="en">The course term is intentionally broad. DUL provides a foundational physical-object category, while SOMA provides robotics-oriented refinements for embodied activity contexts.</skos:scopeNote>
     </rdf:Description>
-    
 
 
-    <!-- 
+
+    <!-- https://hcis.io/ontology/aicapstone/2026/group13/Bowl -->
+
+
+    <owl:Class rdf:about="https://hcis.io/ontology/aicapstone/2026/group13/Bowl">
+        <rdfs:subClassOf rdf:resource="https://hcis.io/ontology/aicapstone/2026/PhysicalObject"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://hcis.io/ontology/aicapstone/2026/hasAffordance"/>
+                <owl:someValuesFrom rdf:resource="https://hcis.io/ontology/aicapstone/2026/GraspingAffordance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A bowl object in the dining-cleanup advanced task. It is a graspable tableware object to be moved into the tray.</rdfs:comment>
+        <rdfs:label xml:lang="en">bowl</rdfs:label>
+    </owl:Class>
+
+
+
+    <!-- https://hcis.io/ontology/aicapstone/2026/group13/CleanupTool -->
+
+
+    <owl:Class rdf:about="https://hcis.io/ontology/aicapstone/2026/group13/CleanupTool">
+        <rdfs:subClassOf rdf:resource="https://hcis.io/ontology/aicapstone/2026/TaskRole"/>
+    </owl:Class>
+
+
+
+    <!-- https://hcis.io/ontology/aicapstone/2026/group13/Cloth -->
+
+
+    <owl:Class rdf:about="https://hcis.io/ontology/aicapstone/2026/group13/Cloth">
+        <rdfs:subClassOf rdf:resource="https://hcis.io/ontology/aicapstone/2026/PhysicalObject"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://hcis.io/ontology/aicapstone/2026/hasAffordance"/>
+                <owl:someValuesFrom rdf:resource="https://hcis.io/ontology/aicapstone/2026/GraspingAffordance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://hcis.io/ontology/aicapstone/2026/hasAffordance"/>
+                <owl:someValuesFrom rdf:resource="https://hcis.io/ontology/aicapstone/2026/group13/WipingAffordance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A cloth object in the dining-cleanup advanced task. It is graspable and can be used as a wiping tool.</rdfs:comment>
+        <rdfs:label xml:lang="en">cloth</rdfs:label>
+    </owl:Class>
+
+
+
+    <!-- https://hcis.io/ontology/aicapstone/2026/group13/ProtectedObject -->
+
+
+    <owl:Class rdf:about="https://hcis.io/ontology/aicapstone/2026/group13/ProtectedObject">
+        <rdfs:subClassOf rdf:resource="https://hcis.io/ontology/aicapstone/2026/TaskRole"/>
+    </owl:Class>
+
+
+
+    <!-- https://hcis.io/ontology/aicapstone/2026/group13/Spoon -->
+
+
+    <owl:Class rdf:about="https://hcis.io/ontology/aicapstone/2026/group13/Spoon">
+        <rdfs:subClassOf rdf:resource="https://hcis.io/ontology/aicapstone/2026/PhysicalObject"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://hcis.io/ontology/aicapstone/2026/hasAffordance"/>
+                <owl:someValuesFrom rdf:resource="https://hcis.io/ontology/aicapstone/2026/GraspingAffordance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A spoon object in the dining-cleanup advanced task. It is a graspable tableware object to be moved into the tray.</rdfs:comment>
+        <rdfs:label xml:lang="en">spoon</rdfs:label>
+    </owl:Class>
+
+
+
+    <!-- https://hcis.io/ontology/aicapstone/2026/group13/StabilityAffordance -->
+
+
+    <owl:Class rdf:about="https://hcis.io/ontology/aicapstone/2026/group13/StabilityAffordance">
+        <rdfs:subClassOf rdf:resource="https://hcis.io/ontology/aicapstone/2026/Affordance"/>
+        <rdfs:comment xml:lang="en">An affordance indicating that an object should remain stable and undisturbed in the dining-cleanup task.</rdfs:comment>
+        <rdfs:label xml:lang="en">stability affordance</rdfs:label>
+    </owl:Class>
+
+
+
+    <!-- https://hcis.io/ontology/aicapstone/2026/group13/Tissue -->
+
+
+    <owl:Class rdf:about="https://hcis.io/ontology/aicapstone/2026/group13/Tissue">
+        <rdfs:subClassOf rdf:resource="https://hcis.io/ontology/aicapstone/2026/PhysicalObject"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://hcis.io/ontology/aicapstone/2026/hasAffordance"/>
+                <owl:someValuesFrom rdf:resource="https://hcis.io/ontology/aicapstone/2026/group13/StabilityAffordance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A tissue object in the dining-cleanup advanced task. It is protected and should remain stable rather than be grasped.</rdfs:comment>
+        <rdfs:label xml:lang="en">tissue</rdfs:label>
+    </owl:Class>
+
+
+
+    <!-- https://hcis.io/ontology/aicapstone/2026/group13/Tray -->
+
+
+    <owl:Class rdf:about="https://hcis.io/ontology/aicapstone/2026/group13/Tray">
+        <rdfs:subClassOf rdf:resource="https://hcis.io/ontology/aicapstone/2026/PhysicalObject"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://hcis.io/ontology/aicapstone/2026/hasAffordance"/>
+                <owl:someValuesFrom rdf:resource="https://hcis.io/ontology/aicapstone/2026/ContainmentAffordance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A tray object in the dining-cleanup advanced task. It receives the bowl and spoon but is not modeled as graspable.</rdfs:comment>
+        <rdfs:label xml:lang="en">tray</rdfs:label>
+    </owl:Class>
+
+
+
+    <!-- https://hcis.io/ontology/aicapstone/2026/group13/Vase -->
+
+
+    <owl:Class rdf:about="https://hcis.io/ontology/aicapstone/2026/group13/Vase">
+        <rdfs:subClassOf rdf:resource="https://hcis.io/ontology/aicapstone/2026/PhysicalObject"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://hcis.io/ontology/aicapstone/2026/hasAffordance"/>
+                <owl:someValuesFrom rdf:resource="https://hcis.io/ontology/aicapstone/2026/group13/StabilityAffordance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A vase object in the dining-cleanup advanced task. It is protected and should remain stable rather than be grasped.</rdfs:comment>
+        <rdfs:label xml:lang="en">vase</rdfs:label>
+    </owl:Class>
+
+
+
+    <!-- https://hcis.io/ontology/aicapstone/2026/group13/WipingAffordance -->
+
+
+    <owl:Class rdf:about="https://hcis.io/ontology/aicapstone/2026/group13/WipingAffordance">
+        <rdfs:subClassOf rdf:resource="https://hcis.io/ontology/aicapstone/2026/Affordance"/>
+        <rdfs:comment xml:lang="en">An affordance for using an object as a wiping tool in the dining-cleanup advanced task.</rdfs:comment>
+        <rdfs:label xml:lang="en">wiping affordance</rdfs:label>
+    </owl:Class>
+
+
+
+    <!--
     ///////////////////////////////////////////////////////////////////////////////////////
     //
     // Individuals
@@ -187,14 +336,14 @@
      -->
 
 
-    
+
 
 
     <!-- https://hcis.io/ontology/aicapstone/2026/CollectableObject -->
 
 
     <owl:NamedIndividual rdf:about="https://hcis.io/ontology/aicapstone/2026/CollectableObject"/>
-    
+
 
 
     <!-- https://hcis.io/ontology/aicapstone/2026/ContainerTarget -->
@@ -207,21 +356,35 @@
         <skos:relatedMatch rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Deposition"/>
         <skos:scopeNote xml:lang="en">This term is used locally to describe the role of a container in the course task, not to assert equivalence with a SOMA action or process class.</skos:scopeNote>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://hcis.io/ontology/aicapstone/2026/ReferenceObject -->
 
 
     <owl:NamedIndividual rdf:about="https://hcis.io/ontology/aicapstone/2026/ReferenceObject"/>
-    
+
 
 
     <!-- https://hcis.io/ontology/aicapstone/2026/TargetObject -->
 
 
     <owl:NamedIndividual rdf:about="https://hcis.io/ontology/aicapstone/2026/TargetObject"/>
-    
+
+
+
+    <!-- https://hcis.io/ontology/aicapstone/2026/group13/CleanupTool -->
+
+
+    <owl:NamedIndividual rdf:about="https://hcis.io/ontology/aicapstone/2026/group13/CleanupTool"/>
+
+
+
+    <!-- https://hcis.io/ontology/aicapstone/2026/group13/ProtectedObject -->
+
+
+    <owl:NamedIndividual rdf:about="https://hcis.io/ontology/aicapstone/2026/group13/ProtectedObject"/>
+
 
 
     <!-- https://hcis.io/ontology/aicapstone/2026/group13/basket01 -->
@@ -236,7 +399,7 @@
         <rdfs:comment xml:lang="en">The basket instance used as the container target for toy block collection.</rdfs:comment>
         <rdfs:label xml:lang="en">basket 01</rdfs:label>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://hcis.io/ontology/aicapstone/2026/group13/block01 -->
@@ -251,7 +414,7 @@
         <rdfs:comment xml:lang="en">A toy block instance that should be collected into the basket.</rdfs:comment>
         <rdfs:label xml:lang="en">toy block 01</rdfs:label>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://hcis.io/ontology/aicapstone/2026/group13/block02 -->
@@ -263,10 +426,25 @@
         <aicapstone:hasTaskRole rdf:resource="https://hcis.io/ontology/aicapstone/2026/CollectableObject"/>
         <aicapstone:hasObjectLabel>toy_block</aicapstone:hasObjectLabel>
         <aicapstone:hasPoseFrame>world/object_block_02</aicapstone:hasPoseFrame>
-        <rdfs:comment xml:lang="en">A second toy block instance included to represent the plural baseline toy-block collection objects.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A toy block instance that should be collected into the basket.</rdfs:comment>
         <rdfs:label xml:lang="en">toy block 02</rdfs:label>
     </owl:NamedIndividual>
-    
+
+
+
+    <!-- https://hcis.io/ontology/aicapstone/2026/group13/block03 -->
+
+
+    <owl:NamedIndividual rdf:about="https://hcis.io/ontology/aicapstone/2026/group13/block03">
+        <rdf:type rdf:resource="https://hcis.io/ontology/aicapstone/2026/ToyBlock"/>
+        <aicapstone:hasAffordance rdf:resource="https://hcis.io/ontology/aicapstone/2026/group13/graspingAffordance"/>
+        <aicapstone:hasTaskRole rdf:resource="https://hcis.io/ontology/aicapstone/2026/CollectableObject"/>
+        <aicapstone:hasObjectLabel>toy_block</aicapstone:hasObjectLabel>
+        <aicapstone:hasPoseFrame>world/object_block_03</aicapstone:hasPoseFrame>
+        <rdfs:comment xml:lang="en">A toy block instance that should be collected into the basket.</rdfs:comment>
+        <rdfs:label xml:lang="en">toy block 03</rdfs:label>
+    </owl:NamedIndividual>
+
 
 
     <!-- https://hcis.io/ontology/aicapstone/2026/group13/blueCup01 -->
@@ -283,7 +461,38 @@
         <rdfs:comment xml:lang="en">The blue cup instance for the baseline cup-stacking task.</rdfs:comment>
         <rdfs:label xml:lang="en">blue cup 01</rdfs:label>
     </owl:NamedIndividual>
-    
+
+
+
+    <!-- https://hcis.io/ontology/aicapstone/2026/group13/bowl01 -->
+
+
+    <owl:NamedIndividual rdf:about="https://hcis.io/ontology/aicapstone/2026/group13/bowl01">
+        <rdf:type rdf:resource="https://hcis.io/ontology/aicapstone/2026/group13/Bowl"/>
+        <aicapstone:hasAffordance rdf:resource="https://hcis.io/ontology/aicapstone/2026/group13/graspingAffordance"/>
+        <aicapstone:hasTaskRole rdf:resource="https://hcis.io/ontology/aicapstone/2026/TargetObject"/>
+        <aicapstone:hasObjectLabel>bowl</aicapstone:hasObjectLabel>
+        <aicapstone:hasPoseFrame>Scene/bowl</aicapstone:hasPoseFrame>
+        <rdfs:comment xml:lang="en">The bowl object from the dining-cleanup advanced task configuration. It is a graspable object to be placed into the tray.</rdfs:comment>
+        <rdfs:label xml:lang="en">bowl 01</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://hcis.io/ontology/aicapstone/2026/group13/cloth01 -->
+
+
+    <owl:NamedIndividual rdf:about="https://hcis.io/ontology/aicapstone/2026/group13/cloth01">
+        <rdf:type rdf:resource="https://hcis.io/ontology/aicapstone/2026/group13/Cloth"/>
+        <aicapstone:hasAffordance rdf:resource="https://hcis.io/ontology/aicapstone/2026/group13/graspingAffordance"/>
+        <aicapstone:hasAffordance rdf:resource="https://hcis.io/ontology/aicapstone/2026/group13/wipingAffordance"/>
+        <aicapstone:hasTaskRole rdf:resource="https://hcis.io/ontology/aicapstone/2026/group13/CleanupTool"/>
+        <aicapstone:hasObjectLabel>cloth</aicapstone:hasObjectLabel>
+        <aicapstone:hasPoseFrame>Scene/cloth</aicapstone:hasPoseFrame>
+        <rdfs:comment xml:lang="en">The cloth object from the dining-cleanup advanced task configuration. It is graspable and serves as the wiping tool.</rdfs:comment>
+        <rdfs:label xml:lang="en">cloth 01</rdfs:label>
+    </owl:NamedIndividual>
+
 
 
     <!-- https://hcis.io/ontology/aicapstone/2026/group13/containmentAffordance -->
@@ -294,7 +503,7 @@
         <rdfs:comment xml:lang="en">The affordance indicating that an object can contain or receive other objects.</rdfs:comment>
         <rdfs:label xml:lang="en">containment affordance</rdfs:label>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://hcis.io/ontology/aicapstone/2026/group13/cupStackingTask -->
@@ -307,7 +516,7 @@
         <rdfs:comment xml:lang="en">The baseline task in which cups are stacked by the robot.</rdfs:comment>
         <rdfs:label xml:lang="en">cup stacking task</rdfs:label>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://hcis.io/ontology/aicapstone/2026/group13/cutleryArrangementTask -->
@@ -321,7 +530,24 @@
         <rdfs:comment xml:lang="en">The baseline task in which the knife and fork are arranged with respect to the plate.</rdfs:comment>
         <rdfs:label xml:lang="en">cutlery arrangement task</rdfs:label>
     </owl:NamedIndividual>
-    
+
+
+
+    <!-- https://hcis.io/ontology/aicapstone/2026/group13/diningCleanupTask -->
+
+
+    <owl:NamedIndividual rdf:about="https://hcis.io/ontology/aicapstone/2026/group13/diningCleanupTask">
+        <rdf:type rdf:resource="https://hcis.io/ontology/aicapstone/2026/ManipulationTask"/>
+        <aicapstone:hasReferenceObject rdf:resource="https://hcis.io/ontology/aicapstone/2026/group13/tissue01"/>
+        <aicapstone:hasReferenceObject rdf:resource="https://hcis.io/ontology/aicapstone/2026/group13/tray01"/>
+        <aicapstone:hasReferenceObject rdf:resource="https://hcis.io/ontology/aicapstone/2026/group13/vase01"/>
+        <aicapstone:hasTargetObject rdf:resource="https://hcis.io/ontology/aicapstone/2026/group13/bowl01"/>
+        <aicapstone:hasTargetObject rdf:resource="https://hcis.io/ontology/aicapstone/2026/group13/cloth01"/>
+        <aicapstone:hasTargetObject rdf:resource="https://hcis.io/ontology/aicapstone/2026/group13/spoon01"/>
+        <rdfs:comment xml:lang="en">The Group 13 advanced task in which the bowl and spoon are placed into the tray, the cloth wipes the table, and the vase and tissue remain protected.</rdfs:comment>
+        <rdfs:label xml:lang="en">dining cleanup task</rdfs:label>
+    </owl:NamedIndividual>
+
 
 
     <!-- https://hcis.io/ontology/aicapstone/2026/group13/fork01 -->
@@ -336,7 +562,7 @@
         <rdfs:comment xml:lang="en">The fork instance used as a direct manipulation target in the cutlery-arrangement task.</rdfs:comment>
         <rdfs:label xml:lang="en">fork 01</rdfs:label>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://hcis.io/ontology/aicapstone/2026/group13/graspingAffordance -->
@@ -347,7 +573,7 @@
         <rdfs:comment xml:lang="en">The affordance indicating that an object can be grasped, held, lifted, or repositioned by the robot gripper.</rdfs:comment>
         <rdfs:label xml:lang="en">grasping affordance</rdfs:label>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://hcis.io/ontology/aicapstone/2026/group13/group13 -->
@@ -365,7 +591,7 @@
         <foaf:member rdf:resource="https://hcis.io/ontology/aicapstone/2026/group13/member06"/>
         <foaf:name xml:lang="en">Group 13</foaf:name>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://hcis.io/ontology/aicapstone/2026/group13/knife01 -->
@@ -380,7 +606,7 @@
         <rdfs:comment xml:lang="en">The knife instance used as a direct manipulation target in the cutlery-arrangement task.</rdfs:comment>
         <rdfs:label xml:lang="en">knife 01</rdfs:label>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://hcis.io/ontology/aicapstone/2026/group13/member01 -->
@@ -390,10 +616,10 @@
         <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
         <terms:identifier>112550004</terms:identifier>
         <rdfs:comment xml:lang="en">A member of Group 13.</rdfs:comment>
-        <rdfs:label xml:lang="en">Chen Shih-Yen</rdfs:label>
+        <rdfs:label xml:lang="en">Shih-Yen Chen</rdfs:label>
         <foaf:name xml:lang="zh-hant">陳詩諺</foaf:name>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://hcis.io/ontology/aicapstone/2026/group13/member02 -->
@@ -403,10 +629,10 @@
         <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
         <terms:identifier>112550019</terms:identifier>
         <rdfs:comment xml:lang="en">A member of Group 13.</rdfs:comment>
-        <rdfs:label xml:lang="en">Hsieh Chia-Chen</rdfs:label>
+        <rdfs:label xml:lang="en">Chia-Chen Hsieh</rdfs:label>
         <foaf:name xml:lang="zh-hant">謝嘉宸</foaf:name>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://hcis.io/ontology/aicapstone/2026/group13/member03 -->
@@ -416,10 +642,10 @@
         <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
         <terms:identifier>112550047</terms:identifier>
         <rdfs:comment xml:lang="en">A member of Group 13.</rdfs:comment>
-        <rdfs:label xml:lang="en">Hsu Wei-Chen</rdfs:label>
+        <rdfs:label xml:lang="en">Wei-Chen Hsu</rdfs:label>
         <foaf:name xml:lang="zh-hant">徐瑋晨</foaf:name>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://hcis.io/ontology/aicapstone/2026/group13/member04 -->
@@ -429,10 +655,10 @@
         <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
         <terms:identifier>112550099</terms:identifier>
         <rdfs:comment xml:lang="en">A member of Group 13.</rdfs:comment>
-        <rdfs:label xml:lang="en">Tsai Cheng-Hsu</rdfs:label>
+        <rdfs:label xml:lang="en">Cheng-Hsu Tsai</rdfs:label>
         <foaf:name xml:lang="zh-hant">蔡烝旭</foaf:name>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://hcis.io/ontology/aicapstone/2026/group13/member05 -->
@@ -442,10 +668,10 @@
         <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
         <terms:identifier>112550103</terms:identifier>
         <rdfs:comment xml:lang="en">A member of Group 13.</rdfs:comment>
-        <rdfs:label xml:lang="en">Yu Hsiang-Yu</rdfs:label>
+        <rdfs:label xml:lang="en">Hsiang-Yu Yu</rdfs:label>
         <foaf:name xml:lang="zh-hant">游翔宇</foaf:name>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://hcis.io/ontology/aicapstone/2026/group13/member06 -->
@@ -455,10 +681,10 @@
         <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
         <terms:identifier>112550176</terms:identifier>
         <rdfs:comment xml:lang="en">A member of Group 13.</rdfs:comment>
-        <rdfs:label xml:lang="en">Sun Fu-Kang</rdfs:label>
+        <rdfs:label xml:lang="en">Fran</rdfs:label>
         <foaf:name xml:lang="zh-hant">孫傅康</foaf:name>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://hcis.io/ontology/aicapstone/2026/group13/pinkCup01 -->
@@ -475,7 +701,7 @@
         <rdfs:comment xml:lang="en">The pink cup instance for the baseline cup-stacking task.</rdfs:comment>
         <rdfs:label xml:lang="en">pink cup 01</rdfs:label>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://hcis.io/ontology/aicapstone/2026/group13/plate01 -->
@@ -490,7 +716,33 @@
         <rdfs:comment xml:lang="en">The plate instance used as a spatial reference object for arranging the knife and fork.</rdfs:comment>
         <rdfs:label xml:lang="en">plate 01</rdfs:label>
     </owl:NamedIndividual>
-    
+
+
+
+    <!-- https://hcis.io/ontology/aicapstone/2026/group13/spoon01 -->
+
+
+    <owl:NamedIndividual rdf:about="https://hcis.io/ontology/aicapstone/2026/group13/spoon01">
+        <rdf:type rdf:resource="https://hcis.io/ontology/aicapstone/2026/group13/Spoon"/>
+        <aicapstone:hasAffordance rdf:resource="https://hcis.io/ontology/aicapstone/2026/group13/graspingAffordance"/>
+        <aicapstone:hasTaskRole rdf:resource="https://hcis.io/ontology/aicapstone/2026/TargetObject"/>
+        <aicapstone:hasObjectLabel>spoon</aicapstone:hasObjectLabel>
+        <aicapstone:hasPoseFrame>Scene/spoon</aicapstone:hasPoseFrame>
+        <rdfs:comment xml:lang="en">The spoon object from the dining-cleanup advanced task configuration. It is a graspable object to be placed into the tray.</rdfs:comment>
+        <rdfs:label xml:lang="en">spoon 01</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://hcis.io/ontology/aicapstone/2026/group13/stabilityAffordance -->
+
+
+    <owl:NamedIndividual rdf:about="https://hcis.io/ontology/aicapstone/2026/group13/stabilityAffordance">
+        <rdf:type rdf:resource="https://hcis.io/ontology/aicapstone/2026/group13/StabilityAffordance"/>
+        <rdfs:comment xml:lang="en">The affordance indicating that protected dining-scene objects should remain stable during cleanup.</rdfs:comment>
+        <rdfs:label xml:lang="en">stability affordance</rdfs:label>
+    </owl:NamedIndividual>
+
 
 
     <!-- https://hcis.io/ontology/aicapstone/2026/group13/stackabilityAffordance -->
@@ -501,7 +753,7 @@
         <rdfs:comment xml:lang="en">The affordance indicating that an object can participate in a stacking task.</rdfs:comment>
         <rdfs:label xml:lang="en">stackability affordance</rdfs:label>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://hcis.io/ontology/aicapstone/2026/group13/supportAffordance -->
@@ -512,7 +764,22 @@
         <rdfs:comment xml:lang="en">The affordance indicating that an object can support the placement or arrangement of other objects.</rdfs:comment>
         <rdfs:label xml:lang="en">support affordance</rdfs:label>
     </owl:NamedIndividual>
-    
+
+
+
+    <!-- https://hcis.io/ontology/aicapstone/2026/group13/tissue01 -->
+
+
+    <owl:NamedIndividual rdf:about="https://hcis.io/ontology/aicapstone/2026/group13/tissue01">
+        <rdf:type rdf:resource="https://hcis.io/ontology/aicapstone/2026/group13/Tissue"/>
+        <aicapstone:hasAffordance rdf:resource="https://hcis.io/ontology/aicapstone/2026/group13/stabilityAffordance"/>
+        <aicapstone:hasTaskRole rdf:resource="https://hcis.io/ontology/aicapstone/2026/group13/ProtectedObject"/>
+        <aicapstone:hasObjectLabel>tissue</aicapstone:hasObjectLabel>
+        <aicapstone:hasPoseFrame>Scene/tissue</aicapstone:hasPoseFrame>
+        <rdfs:comment xml:lang="en">The tissue object from the dining-cleanup advanced task configuration. It is a protected object and is not modeled as graspable.</rdfs:comment>
+        <rdfs:label xml:lang="en">tissue 01</rdfs:label>
+    </owl:NamedIndividual>
+
 
 
     <!-- https://hcis.io/ontology/aicapstone/2026/group13/toyBlockCollectionTask -->
@@ -523,13 +790,56 @@
         <aicapstone:hasReferenceObject rdf:resource="https://hcis.io/ontology/aicapstone/2026/group13/basket01"/>
         <aicapstone:hasTargetObject rdf:resource="https://hcis.io/ontology/aicapstone/2026/group13/block01"/>
         <aicapstone:hasTargetObject rdf:resource="https://hcis.io/ontology/aicapstone/2026/group13/block02"/>
+        <aicapstone:hasTargetObject rdf:resource="https://hcis.io/ontology/aicapstone/2026/group13/block03"/>
         <rdfs:comment xml:lang="en">The baseline task in which toy blocks are collected into a basket.</rdfs:comment>
         <rdfs:label xml:lang="en">toy block collection task</rdfs:label>
     </owl:NamedIndividual>
-    
 
 
-    <!-- 
+
+    <!-- https://hcis.io/ontology/aicapstone/2026/group13/tray01 -->
+
+
+    <owl:NamedIndividual rdf:about="https://hcis.io/ontology/aicapstone/2026/group13/tray01">
+        <rdf:type rdf:resource="https://hcis.io/ontology/aicapstone/2026/group13/Tray"/>
+        <aicapstone:hasAffordance rdf:resource="https://hcis.io/ontology/aicapstone/2026/group13/containmentAffordance"/>
+        <aicapstone:hasAffordance rdf:resource="https://hcis.io/ontology/aicapstone/2026/group13/supportAffordance"/>
+        <aicapstone:hasTaskRole rdf:resource="https://hcis.io/ontology/aicapstone/2026/ContainerTarget"/>
+        <aicapstone:hasObjectLabel>tray</aicapstone:hasObjectLabel>
+        <aicapstone:hasPoseFrame>Scene/tray</aicapstone:hasPoseFrame>
+        <rdfs:comment xml:lang="en">The tray object from the dining-cleanup advanced task configuration. It receives the bowl and spoon but is not modeled as graspable.</rdfs:comment>
+        <rdfs:label xml:lang="en">tray 01</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://hcis.io/ontology/aicapstone/2026/group13/vase01 -->
+
+
+    <owl:NamedIndividual rdf:about="https://hcis.io/ontology/aicapstone/2026/group13/vase01">
+        <rdf:type rdf:resource="https://hcis.io/ontology/aicapstone/2026/group13/Vase"/>
+        <aicapstone:hasAffordance rdf:resource="https://hcis.io/ontology/aicapstone/2026/group13/stabilityAffordance"/>
+        <aicapstone:hasTaskRole rdf:resource="https://hcis.io/ontology/aicapstone/2026/group13/ProtectedObject"/>
+        <aicapstone:hasObjectLabel>vase</aicapstone:hasObjectLabel>
+        <aicapstone:hasPoseFrame>Scene/vase</aicapstone:hasPoseFrame>
+        <rdfs:comment xml:lang="en">The vase object from the dining-cleanup advanced task configuration. It is a protected object and is not modeled as graspable.</rdfs:comment>
+        <rdfs:label xml:lang="en">vase 01</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://hcis.io/ontology/aicapstone/2026/group13/wipingAffordance -->
+
+
+    <owl:NamedIndividual rdf:about="https://hcis.io/ontology/aicapstone/2026/group13/wipingAffordance">
+        <rdf:type rdf:resource="https://hcis.io/ontology/aicapstone/2026/group13/WipingAffordance"/>
+        <rdfs:comment xml:lang="en">The affordance indicating that the cloth can be used to wipe the dining table region.</rdfs:comment>
+        <rdfs:label xml:lang="en">wiping affordance</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!--
     ///////////////////////////////////////////////////////////////////////////////////////
     //
     // Annotations
@@ -550,6 +860,14 @@
         <skos:prefLabel xml:lang="en">robot agent</skos:prefLabel>
         <skos:relatedMatch rdf:resource="http://purl.org/ieee1872-owl/sumo-cora#Agent"/>
         <skos:scopeNote xml:lang="en">The course term is aligned with CORA at the level of robot-as-agent or robot-as-system. It remains locally defined for the purposes of this homework.</skos:scopeNote>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://hcis.io/ontology/aicapstone/2026/group13/CleanupTool">
+        <rdfs:comment xml:lang="en">A task role for an object used as a tool during dining cleanup, such as the cloth used for wiping.</rdfs:comment>
+        <rdfs:label xml:lang="en">cleanup tool</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://hcis.io/ontology/aicapstone/2026/group13/ProtectedObject">
+        <rdfs:comment xml:lang="en">A task role for objects that should remain stable and undisturbed during the dining-cleanup task.</rdfs:comment>
+        <rdfs:label xml:lang="en">protected object</rdfs:label>
     </rdf:Description>
 </rdf:RDF>
 

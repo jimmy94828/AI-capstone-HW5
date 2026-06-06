@@ -45,6 +45,7 @@ and `vase` are modeled as task-relevant but non-graspable objects.
 | `results/graspable_objects_output.txt` | Output of `queries/graspable_objects.rq` over the materialized model. |
 | `results/shacl_validation_report.txt` | Output of the SHACL validation run. |
 | `results/screenshots/` | Optional screenshots from Protege, Fuseki, Jena, or another reasoning/query interface. |
+| `docs/` | Widoco-generated ontology documentation for checking ontology readability and automatic documentation support. |
 | `src/run_reasoning.py` | Headless RDFLib workflow that materializes `cap:GraspableObject` memberships and regenerates the query output. |
 | `src/run_validation.py` | Headless SHACL validation workflow using pySHACL. |
 
@@ -57,6 +58,7 @@ and `vase` are modeled as task-relevant but non-graspable objects.
 - [Graspable objects query](https://github.com/k77914/semantic-affordance-grounding/blob/main/queries/graspable_objects.rq)
 - [Task objects query](https://github.com/k77914/semantic-affordance-grounding/blob/main/queries/task_objects.rq)
 - [Query output](https://github.com/k77914/semantic-affordance-grounding/blob/main/results/graspable_objects_output.txt)
+- [Widoco documentation](https://github.com/k77914/semantic-affordance-grounding/blob/main/docs/doc/index-en.html)
 - [Reasoning script](https://github.com/k77914/semantic-affordance-grounding/blob/main/src/run_reasoning.py)
 - [SHACL validation script](https://github.com/k77914/semantic-affordance-grounding/blob/main/src/run_validation.py)
 
@@ -203,6 +205,33 @@ python3 src/run_validation.py
 ```
 
 The expected report is `Conforms: True`.
+
+## Ontology Documentation Verification
+
+The `docs/` directory contains Widoco-generated documentation for
+`ontology/group-ontology.ttl`. This is included as an ontology readability and
+well-formedness check, following the homework assessment note about Widoco.
+
+The generated documentation includes the advanced dining-cleanup objects and
+local extension terms, including `g13:bowl01`, `g13:spoon01`, `g13:cloth01`,
+`g13:tray01`, `g13:tissue01`, `g13:vase01`, `g13:WipingAffordance`,
+`g13:StabilityAffordance`, `g13:CleanupTool`, and `g13:ProtectedObject`.
+
+To regenerate it:
+
+```bash
+java -jar /path/to/widoco-1.4.25-jar-with-dependencies_JDK-17.jar \
+  -ontFile ontology/group-ontology.ttl \
+  -outFolder docs \
+  -rewriteAll \
+  -uniteSections
+```
+
+To check that the advanced extension appears in the generated documentation:
+
+```bash
+rg -n 'bowl01|spoon01|cloth01|tray01|tissue01|vase01|block03|WipingAffordance|StabilityAffordance|CleanupTool|ProtectedObject' docs
+```
 
 ## Expected Query Output
 
