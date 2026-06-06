@@ -35,6 +35,7 @@ Repository URL: <https://github.com/k77914/semantic-affordance-grounding>
 | `results/graspable_objects_output.txt` | Generated SPARQL query output. |
 | `results/shacl_validation_report.txt` | Generated SHACL validation report. |
 | `results/screenshots/` | Optional GUI verification screenshots. |
+| `docs/` | Widoco-generated ontology documentation. |
 | `src/run_reasoning.py`, `src/run_validation.py` | Headless result-generation and SHACL validation scripts. |
 
 Key repository links:
@@ -44,6 +45,7 @@ Key repository links:
 - [Inferred results](https://github.com/k77914/semantic-affordance-grounding/blob/main/ontology/inferred-results.ttl)
 - [Graspable objects query](https://github.com/k77914/semantic-affordance-grounding/blob/main/queries/graspable_objects.rq)
 - [Query output](https://github.com/k77914/semantic-affordance-grounding/blob/main/results/graspable_objects_output.txt)
+- [Widoco documentation](https://github.com/k77914/semantic-affordance-grounding/blob/main/docs/doc/index-en.html)
 - [Reasoning script](https://github.com/k77914/semantic-affordance-grounding/blob/main/src/run_reasoning.py)
 
 ## 3. Namespace Policy
@@ -224,7 +226,31 @@ Running `src/run_validation.py` over the asserted model reports
 `Conforms: True`, confirming that all fifteen modeled physical objects satisfy
 the expected structure.
 
-## 11. Design Choices and Limitations
+## 11. Ontology Documentation Verification with Widoco
+
+The ontology was also processed with Widoco to verify that the submitted
+`ontology/group-ontology.ttl` can be automatically documented without major
+structural issues. The generated output is committed under `docs/`, with the
+main HTML entry point at `docs/doc/index-en.html`.
+
+This Widoco documentation is not used as the reasoning result. It is an
+additional readability and well-formedness check. The generated files include
+the advanced dining-cleanup objects and local extension terms, including
+`g13:bowl01`, `g13:spoon01`, `g13:cloth01`, `g13:tray01`, `g13:tissue01`,
+`g13:vase01`, `g13:WipingAffordance`, `g13:StabilityAffordance`,
+`g13:CleanupTool`, and `g13:ProtectedObject`.
+
+The documentation can be regenerated with:
+
+```bash
+java -jar /path/to/widoco-1.4.25-jar-with-dependencies_JDK-17.jar \
+  -ontFile ontology/group-ontology.ttl \
+  -outFolder docs \
+  -rewriteAll \
+  -uniteSections
+```
+
+## 12. Design Choices and Limitations
 
 The model focuses on semantic affordance grounding rather than geometric grasp
 planning. It does not check object dimensions, mass, collision constraints,
@@ -235,7 +261,7 @@ The tray, tissue, and vase are intentionally not inferred as graspable in the
 advanced dining cleanup model. They are task-relevant objects, but their modeled
 affordances are containment, support, or stability rather than grasping.
 
-## 12. Conclusion
+## 13. Conclusion
 
 This ontology provides a compact semantic layer for the AI Capstone task
 environment. It grounds simulated objects as ontology individuals, distinguishes

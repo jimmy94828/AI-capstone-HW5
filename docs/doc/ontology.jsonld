@@ -9,6 +9,24 @@
     } ]
   } ]
 }, {
+  "@id" : "_:genid10",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/hasAffordance"
+  } ],
+  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/ContainmentAffordance"
+  } ]
+}, {
+  "@id" : "_:genid11",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/hasAffordance"
+  } ],
+  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/StabilityAffordance"
+  } ]
+}, {
   "@id" : "_:genid3",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
@@ -16,6 +34,51 @@
   } ],
   "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
     "@id" : "https://hcis.io/ontology/aicapstone/2026/GraspingAffordance"
+  } ]
+}, {
+  "@id" : "_:genid5",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/hasAffordance"
+  } ],
+  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/GraspingAffordance"
+  } ]
+}, {
+  "@id" : "_:genid6",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/hasAffordance"
+  } ],
+  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/GraspingAffordance"
+  } ]
+}, {
+  "@id" : "_:genid7",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/hasAffordance"
+  } ],
+  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/WipingAffordance"
+  } ]
+}, {
+  "@id" : "_:genid8",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/hasAffordance"
+  } ],
+  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/GraspingAffordance"
+  } ]
+}, {
+  "@id" : "_:genid9",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/hasAffordance"
+  } ],
+  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/StabilityAffordance"
   } ]
 }, {
   "@id" : "http://purl.org/dc/terms/identifier",
@@ -94,6 +157,9 @@
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
     "@value" : "graspable object"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/PhysicalObject"
   } ],
   "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
     "@id" : "_:genid1"
@@ -236,7 +302,161 @@
     "@value" : "Group 13 Semantic Affordance Grounding Ontology"
   } ],
   "http://www.w3.org/2002/07/owl#imports" : [ {
-    "@id" : "file:/home/franciscobrizuela/Documents/classes2/AICapstone/HW/ai-capstone26/hw5/semantic-affordance-grounding/ontology/imports/course-affordance.ttl"
+    "@id" : "file:/home/weichen/AI_capstone/AI-capstone-HW5/ontology/imports/course-affordance.ttl"
+  } ]
+}, {
+  "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/Bowl",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A bowl object in the dining-cleanup advanced task. It is a graspable tableware object to be moved into the tray."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "bowl"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/PhysicalObject"
+  }, {
+    "@id" : "_:genid5"
+  } ]
+}, {
+  "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/CleanupTool",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A task role for an object used as a tool during dining cleanup, such as the cloth used for wiping."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "cleanup tool"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/TaskRole"
+  } ]
+}, {
+  "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/Cloth",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A cloth object in the dining-cleanup advanced task. It is graspable and can be used as a wiping tool."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "cloth"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/PhysicalObject"
+  }, {
+    "@id" : "_:genid6"
+  }, {
+    "@id" : "_:genid7"
+  } ]
+}, {
+  "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/ProtectedObject",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A task role for objects that should remain stable and undisturbed during the dining-cleanup task."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "protected object"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/TaskRole"
+  } ]
+}, {
+  "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/Spoon",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A spoon object in the dining-cleanup advanced task. It is a graspable tableware object to be moved into the tray."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "spoon"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/PhysicalObject"
+  }, {
+    "@id" : "_:genid8"
+  } ]
+}, {
+  "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/StabilityAffordance",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "An affordance indicating that an object should remain stable and undisturbed in the dining-cleanup task."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "stability affordance"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/Affordance"
+  } ]
+}, {
+  "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/Tissue",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A tissue object in the dining-cleanup advanced task. It is protected and should remain stable rather than be grasped."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "tissue"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/PhysicalObject"
+  }, {
+    "@id" : "_:genid9"
+  } ]
+}, {
+  "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/Tray",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A tray object in the dining-cleanup advanced task. It receives the bowl and spoon but is not modeled as graspable."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "tray"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/PhysicalObject"
+  }, {
+    "@id" : "_:genid10"
+  } ]
+}, {
+  "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/Vase",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A vase object in the dining-cleanup advanced task. It is protected and should remain stable rather than be grasped."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "vase"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/PhysicalObject"
+  }, {
+    "@id" : "_:genid11"
+  } ]
+}, {
+  "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/WipingAffordance",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "An affordance for using an object as a wiping tool in the dining-cleanup advanced task."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "wiping affordance"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/Affordance"
   } ]
 }, {
   "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/basket01",
@@ -289,7 +509,7 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://hcis.io/ontology/aicapstone/2026/ToyBlock" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "A second toy block instance included to represent the plural baseline toy-block collection objects."
+    "@value" : "A toy block instance that should be collected into the basket."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -303,6 +523,29 @@
   } ],
   "https://hcis.io/ontology/aicapstone/2026/hasPoseFrame" : [ {
     "@value" : "world/object_block_02"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasTaskRole" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/CollectableObject"
+  } ]
+}, {
+  "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/block03",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://hcis.io/ontology/aicapstone/2026/ToyBlock" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A toy block instance that should be collected into the basket."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "toy block 03"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasAffordance" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/graspingAffordance"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasObjectLabel" : [ {
+    "@value" : "toy_block"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasPoseFrame" : [ {
+    "@value" : "world/object_block_03"
   } ],
   "https://hcis.io/ontology/aicapstone/2026/hasTaskRole" : [ {
     "@id" : "https://hcis.io/ontology/aicapstone/2026/CollectableObject"
@@ -334,6 +577,60 @@
   } ],
   "https://hcis.io/ontology/aicapstone/2026/hasTaskRole" : [ {
     "@id" : "https://hcis.io/ontology/aicapstone/2026/TargetObject"
+  } ]
+}, {
+  "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/bowl01",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/Bowl"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "The bowl object from the dining-cleanup advanced task configuration. It is a graspable object to be placed into the tray."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "bowl 01"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasAffordance" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/graspingAffordance"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasObjectLabel" : [ {
+    "@value" : "bowl"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasPoseFrame" : [ {
+    "@value" : "Scene/bowl"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasTaskRole" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/TargetObject"
+  } ]
+}, {
+  "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/cloth01",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/Cloth"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "The cloth object from the dining-cleanup advanced task configuration. It is graspable and serves as the wiping tool."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "cloth 01"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasAffordance" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/graspingAffordance"
+  }, {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/wipingAffordance"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasObjectLabel" : [ {
+    "@value" : "cloth"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasPoseFrame" : [ {
+    "@value" : "Scene/cloth"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasTaskRole" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/CleanupTool"
   } ]
 }, {
   "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/containmentAffordance",
@@ -386,6 +683,34 @@
     "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/fork01"
   }, {
     "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/knife01"
+  } ]
+}, {
+  "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/diningCleanupTask",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/ManipulationTask"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "The Group 13 advanced task in which the bowl and spoon are placed into the tray, the cloth wipes the table, and the vase and tissue remain protected."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "dining cleanup task"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasReferenceObject" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/tissue01"
+  }, {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/tray01"
+  }, {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/vase01"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasTargetObject" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/bowl01"
+  }, {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/cloth01"
+  }, {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/spoon01"
   } ]
 }, {
   "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/fork01",
@@ -490,7 +815,7 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
-    "@value" : "Chen Shih-Yen"
+    "@value" : "Shih-Yen Chen"
   } ],
   "http://xmlns.com/foaf/0.1/name" : [ {
     "@language" : "zh-hant",
@@ -508,7 +833,7 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
-    "@value" : "Hsieh Chia-Chen"
+    "@value" : "Chia-Chen Hsieh"
   } ],
   "http://xmlns.com/foaf/0.1/name" : [ {
     "@language" : "zh-hant",
@@ -526,7 +851,7 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
-    "@value" : "Hsu Wei-Chen"
+    "@value" : "Wei-Chen Hsu"
   } ],
   "http://xmlns.com/foaf/0.1/name" : [ {
     "@language" : "zh-hant",
@@ -544,7 +869,7 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
-    "@value" : "Tsai Cheng-Hsu"
+    "@value" : "Cheng-Hsu Tsai"
   } ],
   "http://xmlns.com/foaf/0.1/name" : [ {
     "@language" : "zh-hant",
@@ -562,7 +887,7 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
-    "@value" : "Yu Hsiang-Yu"
+    "@value" : "Hsiang-Yu Yu"
   } ],
   "http://xmlns.com/foaf/0.1/name" : [ {
     "@language" : "zh-hant",
@@ -580,7 +905,7 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
-    "@value" : "Sun Fu-Kang"
+    "@value" : "Fran"
   } ],
   "http://xmlns.com/foaf/0.1/name" : [ {
     "@language" : "zh-hant",
@@ -638,6 +963,46 @@
     "@id" : "https://hcis.io/ontology/aicapstone/2026/ReferenceObject"
   } ]
 }, {
+  "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/spoon01",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/Spoon"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "The spoon object from the dining-cleanup advanced task configuration. It is a graspable object to be placed into the tray."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "spoon 01"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasAffordance" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/graspingAffordance"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasObjectLabel" : [ {
+    "@value" : "spoon"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasPoseFrame" : [ {
+    "@value" : "Scene/spoon"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasTaskRole" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/TargetObject"
+  } ]
+}, {
+  "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/stabilityAffordance",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/StabilityAffordance"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "The affordance indicating that protected dining-scene objects should remain stable during cleanup."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "stability affordance"
+  } ]
+}, {
   "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/stackabilityAffordance",
   "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual", "https://hcis.io/ontology/aicapstone/2026/StackabilityAffordance" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
@@ -660,6 +1025,32 @@
     "@value" : "support affordance"
   } ]
 }, {
+  "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/tissue01",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/Tissue"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "The tissue object from the dining-cleanup advanced task configuration. It is a protected object and is not modeled as graspable."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "tissue 01"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasAffordance" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/stabilityAffordance"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasObjectLabel" : [ {
+    "@value" : "tissue"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasPoseFrame" : [ {
+    "@value" : "Scene/tissue"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasTaskRole" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/ProtectedObject"
+  } ]
+}, {
   "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/toyBlockCollectionTask",
   "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
@@ -680,5 +1071,75 @@
     "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/block01"
   }, {
     "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/block02"
+  }, {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/block03"
+  } ]
+}, {
+  "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/tray01",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/Tray"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "The tray object from the dining-cleanup advanced task configuration. It receives the bowl and spoon but is not modeled as graspable."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "tray 01"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasAffordance" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/containmentAffordance"
+  }, {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/supportAffordance"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasObjectLabel" : [ {
+    "@value" : "tray"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasPoseFrame" : [ {
+    "@value" : "Scene/tray"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasTaskRole" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/ContainerTarget"
+  } ]
+}, {
+  "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/vase01",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/Vase"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "The vase object from the dining-cleanup advanced task configuration. It is a protected object and is not modeled as graspable."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "vase 01"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasAffordance" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/stabilityAffordance"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasObjectLabel" : [ {
+    "@value" : "vase"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasPoseFrame" : [ {
+    "@value" : "Scene/vase"
+  } ],
+  "https://hcis.io/ontology/aicapstone/2026/hasTaskRole" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/ProtectedObject"
+  } ]
+}, {
+  "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/wipingAffordance",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "https://hcis.io/ontology/aicapstone/2026/group13/WipingAffordance"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "The affordance indicating that the cloth can be used to wipe the dining table region."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "wiping affordance"
   } ]
 } ]
