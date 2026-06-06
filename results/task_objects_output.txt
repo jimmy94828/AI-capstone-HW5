@@ -1,0 +1,28 @@
+# Output of queries/task_objects.rq over the materialized model
+# This query lists ours task-object instances, object types, task roles, and affordances.
+# Data: ontology/group-ontology.ttl + imports/course-affordance.ttl + inferred-results.ttl
+# Engine: rdflib SPARQL; inference: RDFLib graspability materialization.
+
+obj           | label     | objectType   | role                  | affordance
+--------------+-----------+--------------+-----------------------+---------------------------
+g13:basket01  | basket    | cap:Basket   | cap:ContainerTarget   | g13:containmentAffordance
+g13:block01   | toy_block | cap:ToyBlock | cap:CollectableObject | g13:graspingAffordance
+g13:block02   | toy_block | cap:ToyBlock | cap:CollectableObject | g13:graspingAffordance
+g13:block03   | toy_block | cap:ToyBlock | cap:CollectableObject | g13:graspingAffordance
+g13:blueCup01 | blue_cup  | cap:Cup      | cap:TargetObject      | g13:graspingAffordance
+g13:blueCup01 | blue_cup  | cap:Cup      | cap:TargetObject      | g13:stackabilityAffordance
+g13:bowl01    | bowl      | g13:Bowl     | cap:TargetObject      | g13:graspingAffordance
+g13:cloth01   | cloth     | g13:Cloth    | g13:CleanupTool       | g13:graspingAffordance
+g13:cloth01   | cloth     | g13:Cloth    | g13:CleanupTool       | g13:wipingAffordance
+g13:fork01    | fork      | cap:Fork     | cap:TargetObject      | g13:graspingAffordance
+g13:knife01   | knife     | cap:Knife    | cap:TargetObject      | g13:graspingAffordance
+g13:pinkCup01 | pink_cup  | cap:Cup      | cap:TargetObject      | g13:graspingAffordance
+g13:pinkCup01 | pink_cup  | cap:Cup      | cap:TargetObject      | g13:stackabilityAffordance
+g13:plate01   | plate     | cap:Plate    | cap:ReferenceObject   | g13:supportAffordance
+g13:spoon01   | spoon     | g13:Spoon    | cap:TargetObject      | g13:graspingAffordance
+g13:tissue01  | tissue    | g13:Tissue   | g13:ProtectedObject   | g13:stabilityAffordance
+g13:tray01    | tray      | g13:Tray     | cap:ContainerTarget   | g13:containmentAffordance
+g13:tray01    | tray      | g13:Tray     | cap:ContainerTarget   | g13:supportAffordance
+g13:vase01    | vase      | g13:Vase     | g13:ProtectedObject   | g13:stabilityAffordance
+
+# 19 task object rows retrieved.

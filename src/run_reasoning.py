@@ -32,6 +32,8 @@ ALIGN = REPO / "ontology" / "imports" / "course-alignment.ttl"
 INFERRED = REPO / "ontology" / "inferred-results.ttl"
 QUERY = REPO / "queries" / "graspable_objects.rq"
 OUTPUT = REPO / "results" / "graspable_objects_output.txt"
+TASK_OBJECTS_QUERY_PATH = REPO / "queries" / "task_objects.rq"
+TASK_OBJECTS_OUTPUT_PATH = REPO / "results" / "task_objects_output.txt"
 
 
 def load_graph() -> Graph:
@@ -204,11 +206,15 @@ def write_inferred(inferred: list[URIRef]) -> None:
     INFERRED.write_text(header + out.serialize(format="turtle"), encoding="utf-8")
 
 
-def write_query_output() -> None:
+def load_materialized_graph() -> Graph:
     query_graph = Graph()
     for path in (GROUP, AFFORD, INFERRED):
         query_graph.parse(path, format="turtle")
 
+    return query_graph
+
+
+def write_query_output(query_graph: Graph) -> None:
     rows = list(query_graph.query(QUERY.read_text(encoding="utf-8")))
 
     lines = [
@@ -232,6 +238,42 @@ def write_query_output() -> None:
     print("\n".join(lines))
 
 
+def write_task_objects_output(query_graph: Graph) -> None:
+    rows = list(query_graph.query(TASK_OBJECTS_QUERY_PATH.read_text(encoding="utf-8")))
+
+    lines = [
+        "# Output of queries/task_objects.rq over the materialized model",
+        "# This query lists ours task-object instances, object types, task roles, and affordances.",
+        "# Data: ontology/group-ontology.ttl + imports/course-affordance.ttl + inferred-results.ttl",
+        "# Engine: rdflib SPARQL; inference: RDFLib graspability materialization.",
+        "",
+    ]
+    header_cols = ["obj", "label", "objectType", "role", "affordance"]
+    table = [header_cols] + [
+        [
+            short(row.obj),
+            short(row.label),
+            short(row.objectType),
+            short(row.role),
+            short(row.affordance),
+        ]
+        for row in rows
+    ]
+    widths = [max(len(row[i]) for row in table) for i in range(len(header_cols))]
+    sep = "-+-".join("-" * width for width in widths)
+    for index, row in enumerate(table):
+        lines.append(
+            " | ".join(row[col].ljust(widths[col]) for col in range(len(header_cols))).rstrip()
+        )
+        if index == 0:
+            lines.append(sep)
+    lines.append("")
+    lines.append(f"# {len(rows)} task object rows retrieved.")
+
+    TASK_OBJECTS_OUTPUT_PATH.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    print("\n".join(lines))
+
+
 def main() -> int:
     graph = load_graph()
     inferred = infer_graspable_objects(graph)
@@ -243,8 +285,12 @@ def main() -> int:
     write_inferred(inferred)
     print(f"\nWrote {INFERRED}")
 
-    write_query_output()
+    query_graph = load_materialized_graph()
+    write_query_output(query_graph)
     print(f"\nWrote {OUTPUT}")
+
+    write_task_objects_output(query_graph)
+    print(f"\nWrote {TASK_OBJECTS_OUTPUT_PATH}")
     return 0
 
 

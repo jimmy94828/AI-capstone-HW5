@@ -33,6 +33,7 @@ Repository URL: <https://github.com/k77914/semantic-affordance-grounding>
 | `queries/graspable_objects.rq` | Required query for inferred graspable objects. |
 | `queries/task_objects.rq` | Optional query for modeled task objects. |
 | `results/graspable_objects_output.txt` | Generated SPARQL query output. |
+| `results/task_objects_output.txt` | Generated optional task-object inspection output. |
 | `results/shacl_validation_report.txt` | Generated SHACL validation report. |
 | `results/screenshots/` | Optional GUI verification screenshots. |
 | `docs/` | Widoco-generated ontology documentation. |
@@ -45,6 +46,7 @@ Key repository links:
 - [Inferred results](https://github.com/k77914/semantic-affordance-grounding/blob/main/ontology/inferred-results.ttl)
 - [Graspable objects query](https://github.com/k77914/semantic-affordance-grounding/blob/main/queries/graspable_objects.rq)
 - [Query output](https://github.com/k77914/semantic-affordance-grounding/blob/main/results/graspable_objects_output.txt)
+- [Task objects output](https://github.com/k77914/semantic-affordance-grounding/blob/main/results/task_objects_output.txt)
 - [Widoco documentation](https://github.com/k77914/semantic-affordance-grounding/blob/main/docs/doc/index-en.html)
 - [Reasoning script](https://github.com/k77914/semantic-affordance-grounding/blob/main/src/run_reasoning.py)
 
@@ -191,7 +193,9 @@ python3 src/run_validation.py
 `ontology/imports/course-alignment.ttl`. It materializes the graspability
 memberships implied by the HW5 equivalent-class rule, writes
 `ontology/inferred-results.ttl`, then runs `queries/graspable_objects.rq` and
-writes `results/graspable_objects_output.txt`.
+writes `results/graspable_objects_output.txt`. It also runs the optional
+`queries/task_objects.rq` over the same materialized model and writes
+`results/task_objects_output.txt`.
 
 This script is not a complete OWL DL reasoner. It implements the exact
 graspability materialization needed for this submission, including RDFS subclass

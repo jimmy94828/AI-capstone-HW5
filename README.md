@@ -43,6 +43,7 @@ and `vase` are modeled as task-relevant but non-graspable objects.
 | `queries/graspable_objects.rq` | Required SPARQL query for retrieving inferred graspable objects. |
 | `queries/task_objects.rq` | Optional SPARQL query for inspecting modeled task objects, roles, and affordances. |
 | `results/graspable_objects_output.txt` | Output of `queries/graspable_objects.rq` over the materialized model. |
+| `results/task_objects_output.txt` | Output of `queries/task_objects.rq` over the materialized model. |
 | `results/shacl_validation_report.txt` | Output of the SHACL validation run. |
 | `results/screenshots/` | Optional screenshots from Protege, Fuseki, Jena, or another reasoning/query interface. |
 | `docs/` | Widoco-generated ontology documentation for checking ontology readability and automatic documentation support. |
@@ -58,6 +59,7 @@ and `vase` are modeled as task-relevant but non-graspable objects.
 - [Graspable objects query](https://github.com/k77914/semantic-affordance-grounding/blob/main/queries/graspable_objects.rq)
 - [Task objects query](https://github.com/k77914/semantic-affordance-grounding/blob/main/queries/task_objects.rq)
 - [Query output](https://github.com/k77914/semantic-affordance-grounding/blob/main/results/graspable_objects_output.txt)
+- [Task objects output](https://github.com/k77914/semantic-affordance-grounding/blob/main/results/task_objects_output.txt)
 - [Widoco documentation](https://github.com/k77914/semantic-affordance-grounding/blob/main/docs/doc/index-en.html)
 - [Reasoning script](https://github.com/k77914/semantic-affordance-grounding/blob/main/src/run_reasoning.py)
 - [SHACL validation script](https://github.com/k77914/semantic-affordance-grounding/blob/main/src/run_validation.py)
@@ -153,6 +155,7 @@ This regenerates:
 ```text
 ontology/inferred-results.ttl
 results/graspable_objects_output.txt
+results/task_objects_output.txt
 results/shacl_validation_report.txt
 ```
 
